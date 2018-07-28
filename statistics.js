@@ -1,53 +1,42 @@
+// ------------------------------------------------------------------------------
+// Assignment 2
+// Written by: Ayan Bikalapov ID# 27028741
+// For SOEN 287 Section CC – Summer 2018
+// ----------------------------------------------------------------------------- 
+//This application finds whether the number entered by the user in the box is a square or not.
+//It will then print out the sum of the digits of the number (i.e. if the number entered was 16, it will return 7)
+
+
 var counter=0;
 var stringToParse="";
-var input=null;
+var input="";
+window.onload = main();	//just in case
 
-
-window.onload = main();
 function main(){
 do{
 	if(counter>=10){ 
 		alert("You have exceeded invalid entry limit.");
-		break;
+		break;	//end the prompts after 10 consecutive incorrect entries
 	}
 	input = prompt("Enter a string:");
-	if(input==""){
+	if(input==""){	//skip empty carriage return
 		counter++;
 		continue;
 	}
-	if(runMatching(input)===null){
-		isInvalidInput(input)?counter++:counter=0;
+	if(runMatching(input)===null){	//exact match on a numeric string or a string with no vowels
+		isInvalidInput(input)?counter++:counter=0;	//if it's an unacceptable string (numeric/special chars), increase the bad tries counter
 		continue;
 	}
-	stringToParse+=runMatching(input).join("");
-}while(!(input==" "));
+	stringToParse+=runMatching(input).join("");	//if vowels present, collect them
+}while(!(input==" "));	//continue until blank space is entered (only blank space)
 }
-document.getElementById('statsOut').innerHTML=stringToParse.length;
+document.getElementById('statsOut').innerHTML=stringToParse.length;	//output final result to div
 
 
 function isInvalidInput(stringToValidate){
-	return !(stringToValidate.match(/^[0-9+=./?\-*&^%$#@!~|,]+$/gm)===null);
-	console.log("pure digit?" + stringToValidate.match(/^[0-9]+$/gm));
-	console.log("Contains vowels: "+(runMatching(stringToValidate)===null));
-	return (runMatching(stringToParse)===null)&&(!Number.isNaN(parseFloat(stringToValidate)));
-}
-function validateInput(input) {
-	// var specialChars = "!@#$^&%*()+=-[]\/{}|:<>?,.";	//check for singular special chars, didn't go to further validation
-	isANumber=!Number.isNaN(parseFloat(input));
-	isEmpty=input=='';
-	// isSpecialChar=specialChars.includes(input);
-	console.log("number? "+isANumber);
-	console.log("empty? "+ isEmpty);
-	console.log("is a spec char? "+ isSpecialChar);
-	return (!isANumber&&!isEmpty);
+	return !(stringToValidate.match(/^[0-9+=./?\-*&^%$#@!~|,]+$/gm)===null);	//if only digits and/or spec chars, return true
 }
 
 function runMatching(stringToParse){
-	return stringToParse.match(/[aoueiuy]+/gi);
+	return stringToParse.match(/[aoueiuy]+/gi); //filter out vowels, ignore case
 }
-//Take input
-//is it a singular space? If so, terminate
-//lowercase it
-//parse for characters, concatenate whatever's matched into final response
-//if parse returned empty, increase sin counter, otherwise reset it
-//if sin counter reached 10, terminate

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Q3</title>
+	<link rel="stylesheet" type="text/css" href="Q3.css">
+</head>
+<body>
+<table class="numTable">
+	<tr class="distinct1">
+		<td>Input Number: </td>
+		<td><input type="number" id="range" min="0"></td>
+	</tr>
+	<tr class="distinct2">
+		<td>Input Digits: </td>
+		<td><input type="number" id="chosenDigits"></td>
+	</tr>
+	<tr>
+		<td colspan="2"><input type="button" value="Plot graph" onclick="calculateOccurences()"></td>
+	</tr>
+</table>
+	<div id="graphDiv" style="width:800;height:250px;"></div>
+	<script src="plotly-latest.min.js"></script>
+	<script src="Q3.js"></script>
+</body>
+</html>

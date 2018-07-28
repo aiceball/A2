@@ -1,7 +1,7 @@
 // ------------------------------------------------------------------------------
-// Assignment (include number)
-// Written by: (include your name (s) and student id(s))
-// For SOEN 287 Section (your section) – Summer 2018
+// Assignment 2
+// Written by: Ayan Bikalapov ID# 27028741
+// For SOEN 287 Section CC – Summer 2018
 // ----------------------------------------------------------------------------- 
 //This application finds whether the number entered by the user in the box is a square or not.
 //It will then print out the sum of the digits of the number (i.e. if the number entered was 16, it will return 7)
