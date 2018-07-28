@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+	// ------------------------------------------------------------------------------
+	// Assignment 2
+	// Written by: Ayan Bikalapov ID# 27028741
+	// For SOEN 287 Section CC – Summer 2018
+	// ----------------------------------------------------------------------------- 
+	//This function (although strangely named? as per assignment) takes in a user input phrase and uppercases any keywords
+	//from a list. If no keywords are in the phrase, it uppercases the whole phrase.
+		function NumberStats(){
+			phrase=document.getElementById("inputText").value;	//pick up user input
+			keywords=["soen287", "comp249", "assignment2"];
+			foundAKeyword=false;
+			console.log(phrase);
+			for(i in keywords)
+				if(phrase.includes(keywords[i])){
+					phrase=phrase.replace(keywords[i],keywords[i].toUpperCase());
+					foundAKeyword=true;
+				}
+			if(!foundAKeyword){
+				phrase=phrase.toUpperCase();
+			}
+			console.log(phrase);
+		}
+	</script>
+</head>
+<body>
+<input type="text" id="inputText">
+<input type="button" value="Beam me up!" onclick="NumberStats()">
+</body>
+</html>
